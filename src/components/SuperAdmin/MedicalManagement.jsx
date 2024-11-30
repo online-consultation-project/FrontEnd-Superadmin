@@ -2,10 +2,10 @@ import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { SubCard } from "./doctor management/SubCard";
 import { ImInfo } from "react-icons/im";
-import PharmDashboard from "./doctor management/pharmacy management/PharmacyDashboard";
-import PharmAddProducts from "./doctor management/pharmacy management/PharmacyAddProduct";
-import PharmAllProducts from "./doctor management/pharmacy management/PharmacyAllproducts";
-import PharmOrders from "./doctor management/pharmacy management/PharmacyOrders";
+import PharmDashboard from "./pharmacy management/PharmacyDashboard";
+import PharmAddProducts from "./pharmacy management/PharmacyAddProduct";
+import PharmAllProducts from "./pharmacy management/PharmacyAllproducts";
+import PharmOrders from "./pharmacy management/PharmacyOrders";
 
 export const DashboardSection =()=>{
   return (
