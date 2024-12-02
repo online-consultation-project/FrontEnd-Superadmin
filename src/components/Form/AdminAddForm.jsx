@@ -180,6 +180,8 @@ import {
   Grid,
   Box,
 } from "@mui/material";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const initialState = {
   firstName: "",
@@ -195,14 +197,31 @@ const initialState = {
 const AddAdmin = () => {
   const [adminData, setAdminData] = useState(initialState);
 
+  console.log(adminData)
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setAdminData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
     console.log(adminData);
+    try {
+      await axios
+        .post("http://localhost:7000/admin/addadmin", adminData)
+        .then((res) => {
+          console.log("Response:", res.data);
+          toast.success(res.data.message);
+          setAdminData(initialState);
+        })
+        .catch((err) => {
+          console.error("Error Response:", err.response.data);
+          toast.error(err.response.data.message);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -213,10 +232,16 @@ const AddAdmin = () => {
         bgcolor: "white",
         borderRadius: "16px",
         boxShadow: 3,
-        
       }}
     >
-      <h1 style={{ textAlign: "center", fontWeight: "bold", fontSize: "24px",marginBottom: "18px", }}>
+      <h1
+        style={{
+          textAlign: "center",
+          fontWeight: "bold",
+          fontSize: "24px",
+          marginBottom: "18px",
+        }}
+      >
         Add Admin
       </h1>
       <form onSubmit={handleOnSubmit}>

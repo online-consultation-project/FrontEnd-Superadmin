@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaCheckCircle, FaTimesCircle, FaTrashAlt } from "react-icons/fa";
+import Sidebar from "../Sidebar/Sidebar";
 
 const AppointmentTable = () => {
   const [appointments, setAppointments] = useState([
@@ -178,7 +179,9 @@ const AppointmentTable = () => {
   const handleAccept = (id) => {
     setAppointments(
       appointments.map((appointment) =>
-        appointment._id === id ? { ...appointment, status: "Accepted" } : appointment
+        appointment._id === id
+          ? { ...appointment, status: "Accepted" }
+          : appointment
       )
     );
   };
@@ -186,89 +189,113 @@ const AppointmentTable = () => {
   const handleReject = (id) => {
     setAppointments(
       appointments.map((appointment) =>
-        appointment._id === id ? { ...appointment, status: "Rejected" } : appointment
+        appointment._id === id
+          ? { ...appointment, status: "Rejected" }
+          : appointment
       )
     );
   };
 
   const handleDelete = (id) => {
-    setAppointments(appointments.filter((appointment) => appointment._id !== id));
+    setAppointments(
+      appointments.filter((appointment) => appointment._id !== id)
+    );
   };
 
   return (
-    <div className="p-4 bg-gray-200 w-full h-full">
-      <h1 className="text-2xl font-bold mb-6">Appointments</h1>
-      <div className="overflow-x-scroll">
-        <table className="min-w-full table-auto border-collapse border border-gray-300 ">
-          <thead>
-            <tr className="bg-blue-900 text-sm md:text-base  text-white">
-              <th className="border px-2 py-2 text-left">Patient Name</th>
-              <th className="border px-2 py-2 text-left">Email</th>
-              <th className="border px-2 py-2 text-left">Phone</th>
-              <th className="border px-2 py-2 text-left">Gender</th>
-              <th className="border px-2 py-2 text-left">Age</th>
-              <th className="border px-2 py-2 text-left">Doctor Name</th>
-              <th className="border px-2 py-2 text-left">Category</th>
-              <th className="border px-2 py-2 text-left">Date</th>
-              <th className="border px-2 py-2 text-left">Time</th>
-              <th className="border px-2 py-2 text-center">Status</th>
-              <th className="border px-2 py-2 text-center">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {appointments.map((appointment) => (
-              <tr key={appointment._id} className="bg-white hover:bg-gray-50 text-sm md:text-base">
-                <td className="border px-4 py-2">{appointment.patient.name}</td>
-                <td className="border px-4 py-2">{appointment.patient.email}</td>
-                <td className="border px-4 py-2">{appointment.patient.phone}</td>
-                <td className="border px-4 py-2">
-                  {appointment.patient.gender}
-                </td>
-                <td className="border px-4 py-2">{appointment.patient.age}</td>
-                <td className="border px-4 py-2">{appointment.doctor.name}</td>
-                <td className="border px-4 py-2">
-                  {appointment.doctor.category}
-                </td>
-                <td className="border px-4 py-2">{appointment.date}</td>
-                <td className="border px-4 py-2">{appointment.time}</td>
-                <td
-                  className={`border px-4 py-2 font-bold text-center ${
-                    appointment.status === "Accepted"
-                      ? "text-green-500"
-                      : appointment.status === "Rejected"
-                      ? "text-red-500"
-                      : "text-yellow-500"
-                  }`}
-                >
-                  {appointment.status}
-                </td>
-                <td className="border px-4 py-2 flex justify-center items-center gap-2">
-                  <button
-                    onClick={() => handleAccept(appointment._id)}
-                    className="text-green-500 hover:text-green-700"
-                    title="Accept"
+    <div className="flex">
+      <div className="fixed top-0 left-0 h-full sm:h-screen sm:w-72 w-full">
+        <Sidebar />
+      </div>
+      <div className="p-6 bg-gray-200 sm:ml-72 overflow-x-scroll flex-1 ml-0 max-sm:mt-16">
+        <div className="bg-gray-200 w-full h-full">
+          <h1 className="text-2xl font-bold mb-7 border-b-2 pb-3 border-slate-600">Appointments</h1>
+          <div className="overflow-x-scroll">
+            <table className="min-w-full table-auto border-collapse border border-gray-300 ">
+              <thead>
+                <tr className="bg-blue-900 text-sm md:text-base  text-white">
+                  <th className="border px-2 py-2 text-left">Patient Name</th>
+                  <th className="border px-2 py-2 text-left">Email</th>
+                  <th className="border px-2 py-2 text-left">Phone</th>
+                  <th className="border px-2 py-2 text-left">Gender</th>
+                  <th className="border px-2 py-2 text-left">Age</th>
+                  <th className="border px-2 py-2 text-left">Doctor Name</th>
+                  <th className="border px-2 py-2 text-left">Category</th>
+                  <th className="border px-2 py-2 text-left">Date</th>
+                  <th className="border px-2 py-2 text-left">Time</th>
+                  <th className="border px-2 py-2 text-center">Status</th>
+                  <th className="border px-2 py-2 text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {appointments.map((appointment) => (
+                  <tr
+                    key={appointment._id}
+                    className="bg-white hover:bg-gray-50 text-sm md:text-base"
                   >
-                    <FaCheckCircle size={25} />
-                  </button>
-                  <button
-                    onClick={() => handleReject(appointment._id)}
-                    className="text-red-500 hover:text-red-700"
-                    title="Reject"
-                  >
-                    <FaTimesCircle size={25} />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(appointment._id)}
-                    className="text-gray-500 hover:text-gray-700"
-                    title="Delete"
-                  >
-                    <FaTrashAlt size={25} />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                    <td className="border px-4 py-2">
+                      {appointment.patient.name}
+                    </td>
+                    <td className="border px-4 py-2">
+                      {appointment.patient.email}
+                    </td>
+                    <td className="border px-4 py-2">
+                      {appointment.patient.phone}
+                    </td>
+                    <td className="border px-4 py-2">
+                      {appointment.patient.gender}
+                    </td>
+                    <td className="border px-4 py-2">
+                      {appointment.patient.age}
+                    </td>
+                    <td className="border px-4 py-2">
+                      {appointment.doctor.name}
+                    </td>
+                    <td className="border px-4 py-2">
+                      {appointment.doctor.category}
+                    </td>
+                    <td className="border px-4 py-2">{appointment.date}</td>
+                    <td className="border px-4 py-2">{appointment.time}</td>
+                    <td
+                      className={`border px-4 py-2 font-bold text-center ${
+                        appointment.status === "Accepted"
+                          ? "text-green-500"
+                          : appointment.status === "Rejected"
+                          ? "text-red-500"
+                          : "text-yellow-500"
+                      }`}
+                    >
+                      {appointment.status}
+                    </td>
+                    <td className="border px-4 py-2 flex justify-center items-center gap-2">
+                      <button
+                        onClick={() => handleAccept(appointment._id)}
+                        className="text-green-500 hover:text-green-700"
+                        title="Accept"
+                      >
+                        <FaCheckCircle size={25} />
+                      </button>
+                      <button
+                        onClick={() => handleReject(appointment._id)}
+                        className="text-red-500 hover:text-red-700"
+                        title="Reject"
+                      >
+                        <FaTimesCircle size={25} />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(appointment._id)}
+                        className="text-gray-500 hover:text-gray-700"
+                        title="Delete"
+                      >
+                        <FaTrashAlt size={25} />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );

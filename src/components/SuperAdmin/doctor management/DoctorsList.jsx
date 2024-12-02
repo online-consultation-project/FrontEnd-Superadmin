@@ -55,7 +55,7 @@ const DoctorsMain = () => {
 
   return (
    <div className="min-h-screen w-full bg-gray-200">
-     <div className="grid grid-cols-4 gap-4 p-3 max-sm:grid-cols-1">
+     <div className="grid grid-cols-4 gap-4 p-3 max-sm:grid-cols-1 sm:max-md:grid-cols-1 md:max-lg:grid-cols-2 lg:max-xl:grid-cols-3 xl:grid-cols-4 ">
       {DoctorsData.map((value, index) => (
         <DoctorCard key={index} {...value}/>
       ))}
