@@ -8,39 +8,33 @@ import {
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { Button } from "./SubCard";
+// import { Link } from "react-router-dom";
 
-const DoctorCard = ({ image, drName, specialist }) => {
-  console.log(image, drName);
-
+const DoctorCard = ({ image, firstName, lastName, category, _id,phoneNumber,hospitalName,experience }) => {
+  const name = `${firstName} ${lastName}`;
   return (
-    <Card className="shadow-sm shadow-slate-600">
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="80"
-          image={image}
-          alt="green iguana"
-          className=""
-        />
-        <CardContent className="bg-gradient-to-r from-blue-500 to-blue-900 flex gap-[40px] text-white hover:text-white justify-between items-center">
-          <div className="flex flex-col gap-1 justify-center items-center">
-            <Typography
-              style={{ fontSize: "15px", fontWeight: "700" }}
-              className=""
-            >
-              {drName}
-            </Typography>
-            <Typography style={{ fontSize: "15px", fontWeight: "400" }}>
-              {specialist}
-            </Typography>
-          </div>
-          <div className="flex -mt-9 mr-2 text-xl gap-4 justify-center items-center">
-            <FaEdit />
-            <MdDeleteForever />
-          </div>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <div className="min-h-[300px] flex flex-col gap-2 justify-center shadow-sm shadow-slate-600 rounded-xl ">
+      <img
+        src={image}
+        alt="user Profile"
+        className="h-44 w-full bg-slate-600 rounded-lg"
+      />
+      <div className="flex h-auto flex-col justify-center p-3 items-start gap-2">
+        <div className=" w-full flex flex-col justify-center rounded-xl items-start gap-2">
+          <span className="font-bold text-blue-900">{name}</span>
+          <span className="font-semibold text-slate-600">{category}</span>
+          <span className="font-semibold text-slate-600">{phoneNumber}</span>
+        </div>
+        <div className="w-full flex justify-around items-center gap-1">
+          <Link to={`/doctors/update/${_id}`}>
+            <Button btnName={"Edit"} />
+          </Link>
+          <Button btnName={"Delete"} />
+        </div>
+      </div>
+    </div>
   );
 };
 

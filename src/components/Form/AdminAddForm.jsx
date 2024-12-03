@@ -169,7 +169,7 @@
 
 // export default AddAdmin;
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   TextField,
   Select,
@@ -182,6 +182,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate, useParams } from "react-router-dom";
 
 const initialState = {
   firstName: "",
@@ -196,8 +197,16 @@ const initialState = {
 
 const AddAdmin = () => {
   const [adminData, setAdminData] = useState(initialState);
+  const [updated, setUpdated] = useState(false)
 
   console.log(adminData)
+  const {id} = useParams()
+  //  console.log(id);
+   
+  const navigate = useNavigate()
+
+  console.log(adminData);
+  
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -206,23 +215,72 @@ const AddAdmin = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    console.log(adminData);
+    const authToken = localStorage.getItem("token");
     try {
-      await axios
-        .post("http://localhost:7000/admin/addadmin", adminData)
-        .then((res) => {
-          console.log("Response:", res.data);
-          toast.success(res.data.message);
-          setAdminData(initialState);
-        })
-        .catch((err) => {
-          console.error("Error Response:", err.response.data);
-          toast.error(err.response.data.message);
-        });
+      updated ? await axios
+      .put(`http://localhost:7000/admin/addadmin/?objId=${id}`, adminData,{
+        headers: {Authorization : `Bearer ${authToken}` }
+      })
+      .then((res) => {
+        toast.success(res.data.message);
+        navigate("/doctors/doctorslist");
+        setAdminData(initialState);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      }) : await axios
+      .post("http://localhost:7000/admin/addadmin", adminData)
+      .then((res) => {
+        toast.success(res.data.message);
+        setAdminData(initialState);
+      })
+      .catch((err) => {
+        console.error("Error Response:", err.response.data);
+        toast.error(err.response.data.message);
+      });
+  } catch (error) {
+    console.log(error);
+  }
+};
+      
+
+  const getByUpdate = async (_id) => {
+    console.log("getupdate : ",_id);
+    const authToken = localStorage.getItem("token");
+    console.log("token",authToken);
+    
+    try {
+      console.log("getupdate");
+      
+      await axios.get(`http://localhost:7000/admin/getadmin/?_id=${_id}`,{
+        headers: {Authorization : `Bearer ${authToken}`}
+      })
+      .then((res) => {
+        setAdminData(res.data)
+        console.log(res.data);
+        
+      })
+      .catch((err) => {
+        // toast.error(err.response.data.message)
+        console.log(err.response.data.Message);
+        
+      })
     } catch (error) {
       console.log(error);
     }
-  };
+  }
+
+
+  useEffect(() => {
+    if (id) {
+      console.log("update");
+      getByUpdate(id)
+      setUpdated(true)
+      
+    }else{
+      setUpdated(false)
+    }
+  }, [id])
 
   return (
     <Box
@@ -242,7 +300,7 @@ const AddAdmin = () => {
           marginBottom: "18px",
         }}
       >
-        Add Admin
+      { updated? "Update Doctor" : "Add Doctor" }
       </h1>
       <form onSubmit={handleOnSubmit}>
         <Grid container spacing={4}>
@@ -370,7 +428,7 @@ const AddAdmin = () => {
               color="primary"
               sx={{ fontSize: "1.2rem", py: 1 }}
             >
-              Add Admin
+              { updated ? "Update Admin" : "Add Admin" }
             </Button>
           </Grid>
         </Grid>

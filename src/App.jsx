@@ -23,6 +23,7 @@ import TimeTable from "./components/SuperAdmin/doctor management/doctorInfosecio
 import Setting from "./components/SuperAdmin/doctor management/doctorInfosecion/DoctorSetting";
 import Signin from "./components/SuperAdmin/Signin";
 import PrivateRoute from "./components/auth/private";
+import AdminForm from "./components/SuperAdmin/doctor management/AdminForm";
 
 const RouteComp = () => {
   return (
@@ -32,6 +33,7 @@ const RouteComp = () => {
         <Route index element={<DashboardComp />} />
       </Route>
       
+
         <Route path="/userdetails" element={<UserComp />} />
         <Route path="/appointments" element={<AppointmentComp />} />
 
@@ -50,6 +52,7 @@ const RouteComp = () => {
 
         <Route path="/doctors" element={<DoctorComp />}>
           <Route index element={<FormSection />} />
+          <Route path="/doctors/update/:id" element={<FormSection/>}/>
           <Route path="/doctors/doctorslist" element={<DoctorSection />} />
           <Route path="/doctors/doctorsinfo" element={<DoctorInfo />}>
             <Route index element={<Overview />} />
@@ -59,6 +62,8 @@ const RouteComp = () => {
             <Route path="settings" element={<Setting />} />
           </Route>
         </Route>
+
+        <Route path="/admindetail" element={<AdminForm />} />
     </Routes>
   );
 };

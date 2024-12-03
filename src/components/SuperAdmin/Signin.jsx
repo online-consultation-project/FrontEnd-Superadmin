@@ -28,6 +28,7 @@ export const Signin = () => {
       await axios
         .post("http://localhost:7000/super/signin", inputdata)
         .then((res) => {
+          console.log(res.data);
           localStorage.setItem("token", res.data.token);
           toast.success(res.data.message);
           setInputdata(initialState);
