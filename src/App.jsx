@@ -63,7 +63,6 @@ const RouteComp = () => {
           </Route>
         </Route>
 
-        <Route path="/admindetail" element={<AdminForm />} />
     </Routes>
   );
 };
