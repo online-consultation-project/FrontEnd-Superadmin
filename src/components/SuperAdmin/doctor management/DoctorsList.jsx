@@ -79,7 +79,7 @@ useEffect(() => {
 
   return (
    <div className="min-h-screen w-full bg-gray-200">
-     <div className="grid grid-cols-4 gap-4 p-3 max-sm:grid-cols-1 sm:max-md:grid-cols-1 md:max-lg:grid-cols-2 lg:max-xl:grid-cols-3 xl:grid-cols-4 ">
+     <div className="grid grid-cols-4 gap-4 p-3 max-[810px]:grid-cols-1 max-lg:grid-cols-2 lg:max-xl:grid-cols-3 xl:grid-cols-4 ">
       {doctors.map((value, index) => (
         <DoctorCard key={index} image={"https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png"} {...value}/>
       ))}

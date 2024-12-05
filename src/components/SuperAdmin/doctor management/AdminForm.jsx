@@ -84,7 +84,7 @@ const AdminForm = () =>{
 
       useEffect(() => {
         fetchAdminByDashboard();
-      })
+      },[])
 
     return(
         <Box>

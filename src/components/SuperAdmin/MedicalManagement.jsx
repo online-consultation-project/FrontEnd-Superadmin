@@ -7,6 +7,9 @@ import PharmAddProducts from "./pharmacy management/PharmacyAddProduct";
 import PharmAllProducts from "./pharmacy management/PharmacyAllproducts";
 import PharmOrders from "./pharmacy management/PharmacyOrders";
 import Sidebar from "../Sidebar/Sidebar";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { MdManageAccounts, MdOutlineProductionQuantityLimits } from "react-icons/md";
+import { AiFillProduct } from "react-icons/ai";
 
 export const DashboardSection = () => {
   return <PharmDashboard />;
@@ -28,22 +31,22 @@ const MedicalComp = () => {
   const location = useLocation();
   const pharmacyMenu = [
     {
-      image: <ImInfo className="text-2xl font-semibold" />,
+      image: <LuLayoutDashboard className="text-2xl font-semibold" />,
       title: "Dashboard",
       path: "/pharmacy",
     },
     {
-      image: <ImInfo className="text-2xl font-semibold" />,
+      image: <MdOutlineProductionQuantityLimits className="text-2xl font-semibold" />,
       title: "Add Product",
       path: "/pharmacy/addproducts",
     },
     {
-      image: <ImInfo className="text-2xl font-semibold" />,
+      image: <AiFillProduct className="text-2xl font-semibold" />,
       title: "Products",
       path: "/pharmacy/products",
     },
     {
-      image: <ImInfo className="text-2xl font-semibold" />,
+      image: <MdManageAccounts className="text-2xl font-semibold" />,
       title: "Manage Orders",
       path: "/pharmacy/manageorders",
     },
@@ -59,14 +62,14 @@ const MedicalComp = () => {
           <h1 className="text-2xl font-bold mb-7 border-b-2 pb-3 border-slate-600">
             Pharmacy Management
           </h1>
-          <div className="grid grid-cols-4 gap-3 max-sm:grid-cols-1 sm:max-md:grid-cols-2 md:max-xl:grid-cols-3 mb-7">
+          <div className="grid grid-cols-4 gap-3 max-sm:grid-cols-1 sm:max-md:grid-cols-2 md:max-xl:grid-cols-3 mb-7 border-[1px]">
             {pharmacyMenu.map((value, index) => (
               <Link to={value.path} key={index}>
                 <SubCard
                   props={{ ...value }}
                   className={`${
                     value.path === location.pathname
-                      ? "bg-gradient-to-r from-blue-500 to-blue-900 text-white"
+                      ? "bg-gradient-to-r from-blue-500 to-blue-900 text-white py-4 px-6 rounded-md shadow-sm justify-center sm:max-lg:gap-4 sm:max-lg:px-3 shadow-slate-600 flex gap-6"
                       : "bg-white py-4 px-6 rounded-md shadow-sm justify-center sm:max-lg:gap-4 sm:max-lg:px-3 shadow-slate-600 flex gap-8 text-blue-900"
                   }`}
                 />

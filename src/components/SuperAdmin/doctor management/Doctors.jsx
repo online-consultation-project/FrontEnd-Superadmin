@@ -12,12 +12,15 @@ import { Link } from "react-router-dom";
 import { Button } from "./SubCard";
 // import { Link } from "react-router-dom";
 
-const DoctorCard = ({ image, firstName, lastName, category, _id,phoneNumber,hospitalName,experience }) => {
+const DoctorCard = ({ image, firstName, lastName, category, _id,phoneNumber, product }) => {
+
+  console.log(product);
+  
   const name = `${firstName} ${lastName}`;
   return (
     <div className="min-h-[300px] flex flex-col gap-2 justify-center shadow-sm shadow-slate-600 rounded-xl ">
       <img
-        src={image}
+        src={`${image}`}
         alt="user Profile"
         className="h-44 w-full bg-slate-600 rounded-lg"
       />

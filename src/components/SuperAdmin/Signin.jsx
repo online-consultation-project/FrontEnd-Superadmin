@@ -30,6 +30,7 @@ export const Signin = () => {
         .then((res) => {
           console.log(res.data);
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("adminId", res.data.findEmail._id)
           toast.success(res.data.message);
           setInputdata(initialState);
           navigate('/home')

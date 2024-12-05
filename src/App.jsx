@@ -24,6 +24,9 @@ import Setting from "./components/SuperAdmin/doctor management/doctorInfosecion/
 import Signin from "./components/SuperAdmin/Signin";
 import PrivateRoute from "./components/auth/private";
 import AdminForm from "./components/SuperAdmin/doctor management/AdminForm";
+import ProductAddForm from "./components/Form/ProductAddForm";
+import ProductForm from "./components/Form/ProductAddForm";
+import Navbarmain from "./components/mainportfolio/NavbarComponentDoctor";
 
 const RouteComp = () => {
   return (
@@ -62,7 +65,9 @@ const RouteComp = () => {
             <Route path="settings" element={<Setting />} />
           </Route>
         </Route>
+        {/* <Route path="/addproduct" element={<ProductForm/>}/> */}
 
+        <Route path="/navbar" element={<Navbarmain />} />
     </Routes>
   );
 };
