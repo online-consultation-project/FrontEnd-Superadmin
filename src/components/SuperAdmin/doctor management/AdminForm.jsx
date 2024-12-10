@@ -7,72 +7,18 @@ import { toast } from "react-toastify";
 
 const AdminForm = () =>{
 
-    const DoctorData = [
-        {
-          image:
-            "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-          drName: "Dr. Sathish",
-          specialist: "Eye Care",
-          experience: "10 Years",
-        },
-        {
-          image:
-            "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-          drName: "Dr. Sathish",
-          specialist: "Eye Care",
-          experience: "10 Years",
-        },
-        {
-          image:
-            "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-          drName: "Dr. Sathish",
-          specialist: "Eye Care",
-          experience: "10 Years",
-        },
-        {
-          image:
-            "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-          drName: "Dr. Sathish",
-          specialist: "Eye Care",
-          experience: "10 Years",
-        },
-        {
-          image:
-            "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-          drName: "Dr. Sathish",
-          specialist: "Eye Care",
-          experience: "10 Years",
-        },
-        {
-          image:
-            "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-          drName: "Dr. Sathish",
-          specialist: "Eye Care",
-          experience: "10 Years",
-        },
-        {
-          image:
-            "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-          drName: "Dr. Sathish",
-          specialist: "Eye Care",
-          experience: "10 Years",
-        },
-        {
-          image:
-            "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-          drName: "Dr. Sathish",
-          specialist: "Eye Care",
-          experience: "10 Years",
-        },
-      ];
 
       const [doctorsSide, setDoctorsSide] = useState([]);
 
       const fetchAdminByDashboard = async () => {
         try {
-          await axios.get("http://localhost:7000/admin/addadmin")
+          await axios.get("http://localhost:7000/admin/limitedgetadmin",{
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            }
+          })
           .then((res) => {
-            setDoctorsSide(res.data);
+            setDoctorsSide(res.data.getLimitData);
           })
           .catch((err) => {
             toast.error(err.response.data.message)

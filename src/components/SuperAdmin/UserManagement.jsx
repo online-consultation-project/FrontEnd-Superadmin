@@ -61,7 +61,7 @@ const UserComp = () => {
       <div className="p-6 bg-gray-200 sm:ml-72 overflow-x-scroll flex-1 ml-0 max-sm:mt-16">
         <div className=" bg-gray-200 w-full h-full">
           <h1 className="text-2xl font-bold mb-7 border-b-2 pb-3 border-slate-600">User Management</h1>
-          <div className="grid grid-cols-4 gap-3 max-sm:grid-cols-1 sm:max-[800px]:grid-cols-1 max-lg:grid-cols-2 lg:max-xl:grid-cols-3 max-[1200px]:grid-cols-2 max-[1550px]:grid-cols-4">
+          <div className="grid grid-cols-4 gap-3 max-[520px]:grid-cols-1 max-sm:grid-cols-2 sm:max-[800px]:grid-cols-1 max-lg:grid-cols-2 lg:max-xl:grid-cols-3 max-[1200px]:grid-cols-2 max-[1550px]:grid-cols-4">
             {userData.map((value, index) => (
               <UserCard key={index} {...value} />
             ))}

@@ -32,9 +32,8 @@ const RouteComp = () => {
   return (
     <Routes>
       <Route path="/" element={<Signin />} />
-      <Route path="/home" element={<PrivateRoute />}>
-        <Route index element={<DashboardComp />} />
-      </Route>
+      <Route  element={<PrivateRoute />}>
+        <Route path="/home" element={<DashboardComp />} />
       
 
         <Route path="/userdetails" element={<UserComp />} />
@@ -43,6 +42,7 @@ const RouteComp = () => {
         <Route path="/pharmacy" element={<MedicalComp />}>
           <Route index element={<DashboardSection />} />
           <Route path="/pharmacy/addproducts" element={<AddProductSection />} />
+          <Route path="/pharmacy/updateproduct/:_id" element={<AddProductSection />} />
           <Route path="/pharmacy/products" element={<AllProductsSection />} />
           <Route path="/pharmacy/manageorders" element={<OrdersSection />} />
         </Route>
@@ -68,6 +68,8 @@ const RouteComp = () => {
         {/* <Route path="/addproduct" element={<ProductForm/>}/> */}
 
         <Route path="/navbar" element={<Navbarmain />} />
+      </Route>
+
     </Routes>
   );
 };

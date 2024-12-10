@@ -25,7 +25,7 @@ const ProductCard = ({product}) => {
             <span className="font-bold text-slate-600">{`Rs. ${product.price}`}</span>
           </div>
           <div className="w-full flex justify-between items-center gap-1">
-            <Link to={``}>
+            <Link to={`/pharmacy/updateproduct/${product._id}`}>
               <Button btnName={"Edit"} />
             </Link>
             <Button btnName={"Delete"} />
