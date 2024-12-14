@@ -1,6 +1,6 @@
 import React from "react";
 import { FaEdit } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
+import { MdDelete, MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Button } from "../doctor management/SubCard";
 
@@ -24,12 +24,17 @@ const ProductCard = ({product}) => {
             <span className="font-semibold text-slate-600">{`Qtd: ${product.stockQuantity}`}</span>
             <span className="font-bold text-slate-600">{`Rs. ${product.price}`}</span>
           </div>
-          <div className="w-full flex justify-between items-center gap-1">
-            <Link to={`/pharmacy/updateproduct/${product._id}`}>
-              <Button btnName={"Edit"} />
-            </Link>
-            <Button btnName={"Delete"} />
+          <div className="w-full flex justify-between items-center gap-1 mt-1">
+          <div>
+            <button className="text-[15px] border border-blue-900 text-blue-900 rounded-lg p-[6px]">Read More</button>
           </div>
+          <div className="flex justify-between items-center gap-4">
+            <Link>
+              <FaEdit className="text-2xl text-blue-500"/>
+            </Link>
+            <MdDelete className="text-2xl text-red-500"/>
+          </div>
+        </div>
         </div>
       </div>
     );

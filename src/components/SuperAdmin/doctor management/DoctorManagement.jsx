@@ -1,13 +1,13 @@
 import React from "react";
-import { SubCard } from "./doctor management/SubCard";
+import { SubCard } from "./SubCard";
 import { FaAddressCard } from "react-icons/fa";
 import { FaUserDoctor } from "react-icons/fa6";
 import { ImInfo } from "react-icons/im";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import AdminForm from "./doctor management/AdminForm";
-import DoctorsMain from "./doctor management/DoctorsList";
-import DoctorInfoMain from "./doctor management/DoctorsInformation";
-import Sidebar from "../Sidebar/Sidebar";
+import AdminForm from "./AdminForm";
+import DoctorsMain from "./DoctorsList";
+import DoctorInfoMain from "./DoctorsInformation";
+import Sidebar from "../../Sidebar/Sidebar";
 
 export const FormSection = () => {
   return <AdminForm />;

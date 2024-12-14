@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { SubCard } from "./doctor management/SubCard";
+import { SubCard } from "../doctor management/SubCard";
 import { ImInfo } from "react-icons/im";
-import PharmDashboard from "./pharmacy management/PharmacyDashboard";
-import PharmAddProducts from "./pharmacy management/PharmacyAddProduct";
-import PharmAllProducts from "./pharmacy management/PharmacyAllproducts";
-import PharmOrders from "./pharmacy management/PharmacyOrders";
-import Sidebar from "../Sidebar/Sidebar";
+import PharmDashboard from "./PharmacyDashboard";
+import PharmAddProducts from "./PharmacyAddProduct";
+import PharmAllProducts from "./PharmacyAllproducts";
+import PharmOrders from "./PharmacyOrders";
+import Sidebar from "../../Sidebar/Sidebar";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdManageAccounts, MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { AiFillProduct } from "react-icons/ai";

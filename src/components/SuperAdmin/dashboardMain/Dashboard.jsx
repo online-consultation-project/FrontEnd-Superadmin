@@ -11,9 +11,9 @@ import {
   Line,
   ResponsiveContainer,
 } from "recharts";
-import DashboardCard from "../Reusable Component/DashboardCardCommponent";
+import DashboardCard from "../../Reusable Component/DashboardCardCommponent";
 import { RiAdminLine } from "react-icons/ri";
-import Sidebar from "../Sidebar/Sidebar";
+import Sidebar from "../../Sidebar/Sidebar";
 
 const DashboardComp = () => {
   const revenueData = [
@@ -47,7 +47,8 @@ const DashboardComp = () => {
                 img: RiAdminLine,
                 title: "Total Admin",
                 count: 102,
-                date: "2022-01-01",
+                date: new Date().toISOString().split("T")[0],
+                color: "border-blue-900"
               }}
             />
             <DashboardCard
@@ -55,7 +56,8 @@ const DashboardComp = () => {
                 img: RiAdminLine,
                 title: "Total Admin",
                 count: 105,
-                date: "2022-01-01",
+                date: new Date().toISOString().split("T")[0],
+                color: "border-blue-900"
               }}
             />
             <DashboardCard
@@ -63,7 +65,8 @@ const DashboardComp = () => {
                 img: RiAdminLine,
                 title: "Total Admin",
                 count: 180,
-                date: "2022-01-01",
+                date: new Date().toISOString().split("T")[0],
+                color: "border-blue-900"
               }}
             />
             <DashboardCard
@@ -71,7 +74,8 @@ const DashboardComp = () => {
                 img: RiAdminLine,
                 title: "Total Admin",
                 count: 150,
-                date: "2022-01-01",
+                date: new Date().toISOString().split("T")[0],
+                color: "border-blue-900"
               }}
             />
             <DashboardCard
@@ -79,7 +83,8 @@ const DashboardComp = () => {
                 img: RiAdminLine,
                 title: "Total Admin",
                 count: 104,
-                date: "2022-01-01",
+                date: new Date().toISOString().split("T")[0],
+                color: "border-blue-900"
               }}
             />
           </div>

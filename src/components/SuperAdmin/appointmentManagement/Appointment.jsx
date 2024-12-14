@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaCheckCircle, FaTimesCircle, FaTrashAlt } from "react-icons/fa";
-import Sidebar from "../Sidebar/Sidebar";
+import Sidebar from "../../Sidebar/Sidebar";
 
 const AppointmentTable = () => {
   const [appointments, setAppointments] = useState([

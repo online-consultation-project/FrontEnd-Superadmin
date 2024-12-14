@@ -8,7 +8,7 @@ import {
   FaUserCircle,
 } from "react-icons/fa";
 import { IoBarChart, IoSettings } from "react-icons/io5";
-import Logo from "../../images/CC_logo3.png";
+import Logo from "../../images/CureConnect.png";
 import HeaderMain from "../Header/HeadersComponent";
 
 const navItems = [
@@ -29,7 +29,7 @@ const Sidebar = () => {
         <HeaderMain/>
       </div>
 
-      <div className="relative bg-white h-screen w-full border-r border-gray-200 shadow-lg flex flex-col max-sm:hidden">
+      <div className="relative bg-blue-950 h-screen w-full border-r border-gray-200 shadow-lg flex flex-col max-sm:hidden">
         {/* Logo Section */}
         <div className="p-5 border-b border-gray-200">
           <div className="flex items-center justify-center">
@@ -38,18 +38,18 @@ const Sidebar = () => {
         </div>
 
         {/* Navigation Section */}
-        <nav className="flex flex-col p-4 gap-3">
+        <nav className="flex flex-col gap-3 mt-3">
           {navItems.map((item, index) => (
             <NavLink
               key={index}
               to={item.path}
               className={({ isActive }) =>
-                `flex items-center space-x-3 p-3 rounded-lg text-gray-600 transition-all duration-200 
+                `flex items-center space-x-3 pl-6 p-4 transition-all duration-200 
               ${
                 isActive
-                  ? "bg-gradient-to-r from-blue-900 to-blue-500 text-white"
-                  : "hover:bg-gray-100 hover:shadow"
-              }`
+                  ? "bg-blue-500 text-white border-l-8 border-white"
+                    : "hover:bg-blue-500 hover:text-white hover:border-l-8 border-white hover:shadow text-gray-400"
+                }`
               }
             >
               <item.icon className="h-5 w-5" />

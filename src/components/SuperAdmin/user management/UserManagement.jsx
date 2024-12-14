@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "../Sidebar/Sidebar";
-import UserCard from "./user management/Usercard";
+import Sidebar from "../../Sidebar/Sidebar";
+import UserCard from "./Usercard";
 
 const UserComp = () => {
   const userData = [

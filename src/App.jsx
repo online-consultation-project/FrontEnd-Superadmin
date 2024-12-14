@@ -1,19 +1,18 @@
 import { Route, Router, Routes } from "react-router-dom";
-import UserComp from "./components/SuperAdmin/UserManagement";
+import UserComp from "./components/SuperAdmin/user management/UserManagement";
 import DoctorComp, {
   DoctorInfo,
   DoctorSection,
   FormSection,
-} from "./components/SuperAdmin/DoctorManagement";
+} from "./components/SuperAdmin/doctor management/DoctorManagement";
 import MedicalComp, {
   AddProductSection,
   AllProductsSection,
   DashboardSection,
   OrdersSection,
-} from "./components/SuperAdmin/MedicalManagement";
-import AppointmentComp from "./components/SuperAdmin/Appointment";
-import Sidebar from "./components/Sidebar/Sidebar";
-import DashboardComp from "./components/SuperAdmin/Dashboard";
+} from "./components/SuperAdmin/pharmacy management/MedicalManagement";
+import AppointmentComp from "./components/SuperAdmin/appointmentManagement/Appointment";
+import DashboardComp from "./components/SuperAdmin/dashboardMain/Dashboard";
 import DoctorSideCardDesign from "./components/SuperAdmin/doctor management/SideDoctorCard";
 import DoctorCard from "./components/SuperAdmin/doctor management/Doctors";
 import Overview from "./components/SuperAdmin/doctor management/doctorInfosecion/DoctorOverview";
@@ -21,12 +20,13 @@ import Experience from "./components/SuperAdmin/doctor management/doctorInfoseci
 import Reviews from "./components/SuperAdmin/doctor management/doctorInfosecion/DoctorReview";
 import TimeTable from "./components/SuperAdmin/doctor management/doctorInfosecion/DoctorTimetable";
 import Setting from "./components/SuperAdmin/doctor management/doctorInfosecion/DoctorSetting";
-import Signin from "./components/SuperAdmin/Signin";
+import Signin from "./components/SuperAdmin/dashboardMain/Signin";
 import PrivateRoute from "./components/auth/private";
 import AdminForm from "./components/SuperAdmin/doctor management/AdminForm";
 import ProductAddForm from "./components/Form/ProductAddForm";
 import ProductForm from "./components/Form/ProductAddForm";
 import Navbarmain from "./components/mainportfolio/NavbarComponentDoctor";
+import SettingComp from "./components/SuperAdmin/settingsSuper/setting";
 
 const RouteComp = () => {
   return (
@@ -49,7 +49,7 @@ const RouteComp = () => {
 
         <Route path="/analytics" element={<div>Analytics</div>} />
         <Route path="/notifications" element={<div>Notifications</div>} />
-        <Route path="/settings" element={<div>Settings</div>} />
+        <Route path="/settings" element={<SettingComp/>} />
         <Route path="/sidecard" element={<DoctorSideCardDesign />} />
         <Route path="/doccard" element={<DoctorCard />} />
 
