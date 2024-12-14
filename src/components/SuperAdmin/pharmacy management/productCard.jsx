@@ -29,7 +29,7 @@ const ProductCard = ({product}) => {
             <button className="text-[15px] border border-blue-900 text-blue-900 rounded-lg p-[6px]">Read More</button>
           </div>
           <div className="flex justify-between items-center gap-4">
-            <Link>
+            <Link to={`/pharmacy/updateproduct/${product._id}`}>
               <FaEdit className="text-2xl text-blue-500"/>
             </Link>
             <MdDelete className="text-2xl text-red-500"/>

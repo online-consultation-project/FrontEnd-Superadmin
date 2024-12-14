@@ -580,7 +580,7 @@ const ProductAddForm = () => {
             <Button
               variant="contained"
               type="submit"
-              className="bg-blue-500 w-full h-12"
+              className="bg-blue-900 w-full h-12"
             >
               {editData ? "Update" : "Add"}
             </Button>
