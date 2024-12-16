@@ -67,6 +67,24 @@
 //     setFormData({ ...formData, [name]: type === "file" ? files[0] : value });
 //   };
 
+// const handleAdditionalChange = (index, value) => {
+//   const updatedFields = [...formData.additionalFields];
+//   updatedFields[index] = value;
+//   setFormData({ ...formData, additionalFields: updatedFields });
+// };
+
+// const addAdditionalField = () => {
+//   setFormData((prevState) => ({
+//     ...prevState,
+//     additionalFields: [...prevState.additionalFields, ""],
+//   }));
+// };
+
+// const removeAdditionalField = (index) => {
+//   const updatedFields = formData.additionalFields.filter((_, i) => i !== index);
+//   setFormData({ ...formData, additionalFields: updatedFields });
+// };
+
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     const formData2 = new FormData();
@@ -242,6 +260,44 @@
 //               required
 //             />
 //           </Grid>
+
+// Dynamic Additional Fields
+
+//  <Grid item xs={12}>
+//           <Typography variant="h6">Additional Fields</Typography>
+//         </Grid>
+//         {formData.additionalFields.map((field, index) => (
+//           <Grid container spacing={4} key={index} alignItems="center">
+//             <Grid item xs={10}>
+//               <TextField
+//                 fullWidth
+//                 label={`Field ${index + 1}`}
+//                 value={field}
+//                 onChange={(e) => handleAdditionalChange(index, e.target.value)}
+//                 required
+//                 className=""
+//               />
+//             </Grid>
+//             <Grid item xs={2}>
+//               <IconButton
+//                 color="error"
+//                 onClick={() => removeAdditionalField(index)}
+//               >
+//                 <IoIosRemoveCircleOutline />
+//               </IconButton>
+//             </Grid>
+//           </Grid>
+//         ))}
+//         <Grid item xs={12}>
+//           <Button
+//             variant="outlined"
+//             onClick={addAdditionalField}
+//             startIcon={<IoIosAddCircleOutline />}
+//           >
+//             Add Field
+//           </Button>
+//         </Grid>
+
 //           <Grid item xs={12}>
 //             <Button
 //               variant="contained"
@@ -260,15 +316,8 @@
 // export default ProductAddForm;
 
 import React, { useEffect, useState } from "react";
-import {
-  Grid,
-  TextField,
-  Button,
-  MenuItem,
-  Typography,
-  IconButton,
-} from "@mui/material";
-import { IoIosAddCircleOutline, IoIosRemoveCircleOutline } from "react-icons/io";
+import { Grid, TextField, Button, MenuItem } from "@mui/material";
+
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
@@ -298,9 +347,9 @@ const initialState = {
   stockQuantity: "",
   expireDate: "",
   usageInstruction: "",
-  subDescription:"",
+  subDescription: "",
   description: "",
-  ratings:"",
+  ratings: "",
   image: null,
   additionalFields: [], // Array to store dynamic input field data
 };
@@ -334,24 +383,6 @@ const ProductAddForm = () => {
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
     setFormData({ ...formData, [name]: type === "file" ? files[0] : value });
-  };
-
-  const handleAdditionalChange = (index, value) => {
-    const updatedFields = [...formData.additionalFields];
-    updatedFields[index] = value;
-    setFormData({ ...formData, additionalFields: updatedFields });
-  };
-
-  const addAdditionalField = () => {
-    setFormData((prevState) => ({
-      ...prevState,
-      additionalFields: [...prevState.additionalFields, ""],
-    }));
-  };
-
-  const removeAdditionalField = (index) => {
-    const updatedFields = formData.additionalFields.filter((_, i) => i !== index);
-    setFormData({ ...formData, additionalFields: updatedFields });
   };
 
   const handleSubmit = async (e) => {
@@ -560,42 +591,6 @@ const ProductAddForm = () => {
               onChange={handleChange}
               required
             />
-          </Grid>
-
-          {/* Dynamic Additional Fields */}
-          <Grid item xs={12}>
-            <Typography variant="h6">Additional Fields</Typography>
-          </Grid>
-          {formData.additionalFields.map((field, index) => (
-            <Grid container spacing={4} key={index} alignItems="center">
-              <Grid item xs={10}>
-                <TextField
-                  fullWidth
-                  label={`Field ${index + 1}`}
-                  value={field}
-                  onChange={(e) => handleAdditionalChange(index, e.target.value)}
-                  required
-                  className=""
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <IconButton
-                  color="error"
-                  onClick={() => removeAdditionalField(index)}
-                >
-                  <IoIosRemoveCircleOutline />
-                </IconButton>
-              </Grid>
-            </Grid>
-          ))}
-          <Grid item xs={12}>
-            <Button
-              variant="outlined"
-              onClick={addAdditionalField}
-              startIcon={<IoIosAddCircleOutline />}
-            >
-              Add Field
-            </Button>
           </Grid>
 
           {/* Submit Button */}
