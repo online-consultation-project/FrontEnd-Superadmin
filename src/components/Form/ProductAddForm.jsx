@@ -275,13 +275,13 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const categories = [
   "Medications",
-  "Vitamins & Supplements",
+  "Vitamins and Supplements",
   "Personal Care",
-  "Mother & Baby Care",
+  "Mother and Baby Care",
   "Medical Devices",
-  "Health & Wellness",
-  "Ayurvedic & Herbal Products",
-  "Fitness & Nutrition",
+  "Health and Wellness",
+  "Ayurvedic and Herbal Products",
+  "Fitness and Nutrition",
   "Sexual Wellness",
   "COVID-19 Essentials",
   "Home Healthcare",
@@ -298,7 +298,9 @@ const initialState = {
   stockQuantity: "",
   expireDate: "",
   usageInstruction: "",
+  subDescription:"",
   description: "",
+  ratings:"",
   image: null,
   additionalFields: [], // Array to store dynamic input field data
 };
@@ -524,6 +526,27 @@ const ProductAddForm = () => {
               onChange={handleChange}
               required
               className="mt-4"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              label="Sub Description"
+              name="subDescription"
+              value={formData.subDescription}
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              type="number"
+              label="Ratings"
+              name="ratings"
+              value={formData.ratings}
+              onChange={handleChange}
+              required
             />
           </Grid>
           <Grid item xs={12}>
