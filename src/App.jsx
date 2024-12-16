@@ -57,7 +57,7 @@ const RouteComp = () => {
           <Route index element={<FormSection />} />
           <Route path="/doctors/update/:id" element={<FormSection/>}/>
           <Route path="/doctors/doctorslist" element={<DoctorSection />} />
-          <Route path="/doctors/doctorsinfo" element={<DoctorInfo />}>
+          <Route path="/doctors/doctorsinfo/:_id" element={<DoctorInfo />}>
             <Route index element={<Overview />} />
             <Route path="experience" element={<Experience />} />
             <Route path="reviews" element={<Reviews />} />

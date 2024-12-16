@@ -35,7 +35,7 @@ const pharmacyMenu = [
   {
     image: <ImInfo className="text-2xl font-semibold" />,
     title: "Profile",
-    path: "/doctors/doctorsinfo",
+    path: "/doctors/doctorsinfo/:_id",
   },
   
 ];

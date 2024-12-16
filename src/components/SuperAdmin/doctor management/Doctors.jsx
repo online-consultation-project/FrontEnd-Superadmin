@@ -39,14 +39,17 @@ const DoctorCard = ({
           <span className="font-semibold text-slate-600">{phoneNumber}</span>
         </div>
         <div className="w-full flex justify-between items-center gap-1 mt-1">
-          <div>
-            <button className="text-[15px] border border-blue-900 text-blue-900 rounded-lg p-1">Read More</button>
-          </div>
+          <Link to={`/doctors/doctorsinfo/${_id}`}>
+            <button className="text-[15px] border border-blue-900 text-blue-900 rounded-lg p-1">
+              Read More
+            </button>
+          </Link>
+
           <div className="flex justify-between items-center gap-4">
             <Link to={`/doctors/update/${_id}`}>
-              <FaEdit className="text-2xl text-blue-500"/>
+              <FaEdit className="text-2xl text-blue-500" />
             </Link>
-            <MdDelete className="text-2xl text-red-500"/>
+            <MdDelete className="text-2xl text-red-500" />
           </div>
         </div>
       </div>

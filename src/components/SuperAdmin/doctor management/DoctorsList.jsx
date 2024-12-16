@@ -3,58 +3,9 @@ import DoctorCard from "./Doctors";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const DoctorsMain = () => {
-  // const DoctorsData = [
-  //   {
-  //     image:
-  //       "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-  //     drName: "Dr. Sathish",
-  //     specialist: "Eye Care",
-  //     experience: "10 Years",
-  //     email: "drsathish@gmail.com",
-  //   },
-  //   {
-  //     image:
-  //       "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-  //     drName: "Dr. Sathish",
-  //     specialist: "Eye Care",
-  //     experience: "10 Years",
-  //     email: "drsathish@gmail.com",
-  //   },
-  //   {
-  //     image:
-  //       "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-  //     drName: "Dr. Sathish",
-  //     specialist: "Eye Care",
-  //     experience: "10 Years",
-  //     email: "drsathish@gmail.com",
-  //   },
-  //   {
-  //     image:
-  //       "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-  //     drName: "Dr. Sathish",
-  //     specialist: "Eye Care",
-  //     experience: "10 Years",
-  //     email: "drsathish@gmail.com",
-  //   },
-  //   {
-  //     image:
-  //       "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-  //     drName: "Dr. Sathish",
-  //     specialist: "Eye Care",
-  //     experience: "10 Years",
-  //     email: "drsathish@gmail.com",
-  //   },
-  //   {
-  //     image:
-  //       "https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitioner-1421526856614w2jt9.png",
-  //     drName: "Dr. Sathish",
-  //     specialist: "Eye Care",
-  //     experience: "10 Years",
-  //     email: "drsathish@gmail.com",
-  //   },
-  // ];
 
+
+const DoctorsMain = () => {
   const [doctors, setDoctors] = useState([]);
 
   const fetchDoctors = async () => {
