@@ -555,7 +555,6 @@ const ProductAddForm = () => {
               name="image"
               accept="image/*"
               onChange={handleChange}
-              required
               className="mt-4"
             />
           </Grid>
