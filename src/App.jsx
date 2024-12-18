@@ -47,7 +47,6 @@ const RouteComp = () => {
           <Route path="/pharmacy/manageorders" element={<OrdersSection />} />
         </Route>
 
-        <Route path="/analytics" element={<div>Analytics</div>} />
         <Route path="/notifications" element={<div>Notifications</div>} />
         <Route path="/settings" element={<SettingComp/>} />
         <Route path="/sidecard" element={<DoctorSideCardDesign />} />

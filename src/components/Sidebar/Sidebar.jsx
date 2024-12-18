@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { LuLayoutDashboard, LuShoppingBag } from "react-icons/lu";
 import {
   FaBell,
@@ -10,6 +10,7 @@ import {
 import { IoBarChart, IoSettings } from "react-icons/io5";
 import Logo from "../../images/CureConnect.png";
 import HeaderMain from "../Header/HeadersComponent";
+import { BiLogOut } from "react-icons/bi";
 
 const navItems = [
   { icon: LuLayoutDashboard, text: "Dashboard", path: "/home" },
@@ -17,16 +18,23 @@ const navItems = [
   { icon: FaUserCircle, text: "User Management", path: "/userdetails" },
   { icon: FaCalendarAlt, text: "Appointments", path: "/appointments" },
   { icon: LuShoppingBag, text: "Medical Store", path: "/pharmacy" },
-  { icon: IoBarChart, text: "Analytics", path: "/analytics" },
   { icon: FaBell, text: "Notifications", path: "/notifications" },
   { icon: IoSettings, text: "Settings", path: "/settings" },
 ];
 
 const Sidebar = () => {
+
+  const navigate = useNavigate()
+
+  const handleLogout = () =>{
+    localStorage.clear()
+    navigate("/")
+  }
+
   return (
     <div>
       <div className="relative top-0 sm:hidden">
-        <HeaderMain/>
+        <HeaderMain />
       </div>
 
       <div className="relative bg-blue-950 h-screen w-full border-r border-gray-200 shadow-lg flex flex-col max-sm:hidden">
@@ -38,7 +46,7 @@ const Sidebar = () => {
         </div>
 
         {/* Navigation Section */}
-        <nav className="flex flex-col gap-3 mt-3">
+        <nav className="flex flex-col gap-2">
           {navItems.map((item, index) => (
             <NavLink
               key={index}
@@ -48,14 +56,23 @@ const Sidebar = () => {
               ${
                 isActive
                   ? "bg-blue-500 text-white border-l-8 border-white"
-                    : "hover:bg-blue-500 hover:text-white hover:border-l-8 border-white hover:shadow text-gray-400"
-                }`
+                  : "hover:bg-blue-500 hover:text-white hover:border-l-8 border-white hover:shadow text-gray-400"
+              }`
               }
             >
               <item.icon className="h-5 w-5" />
               <span className="font-medium">{item.text}</span>
             </NavLink>
           ))}
+          <div
+            onClick={handleLogout}
+            className="flex items-center space-x-3 pl-5 p-3 text-gray-400 hover:bg-blue-500  hover:text-white hover:border-l-8 border-white hover:shadow cursor-pointer"
+          >
+            <span>
+              <BiLogOut className="h-5 w-5 text-xl" />
+            </span>
+            <span className="font-medium">Log Out</span>
+          </div>
         </nav>
       </div>
     </div>
@@ -63,8 +80,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-
-
-
-
