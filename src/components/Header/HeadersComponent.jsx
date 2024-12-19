@@ -21,12 +21,13 @@
 
 // export default HeaderMain;
 
+
 import React, { useState } from "react";
 import { IoMenu, IoSearchSharp } from "react-icons/io5";
 import { IoMdNotifications } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import Logo from "../../images/CC_logo3.png";
-import ToggleSidebar from "../Sidebar/ToggleSidebar"
+import ToggleSidebar from "../Sidebar/ToggleSidebar";
 
 const HeaderMain = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -36,26 +37,20 @@ const HeaderMain = () => {
   };
 
   return (
-    <div className="w-full h-16 px-4 bg-white shadow-md flex justify-between items-center gap-5">
-      {/* Burger Menu */}
+    <div className="w-full h-16 px-4 bg-white shadow-md flex justify-between items-center gap-5 z-40 relative">
       <IoMenu className="text-2xl cursor-pointer" onClick={toggleSidebar} />
-      
-      {/* Logo */}
+
       <img src={Logo} alt="Logo" className="h-10 w-28" />
-      
-      {/* Right-side Icons */}
+
       <div className="flex items-center gap-3 text-xl">
         <IoSearchSharp className="cursor-pointer text-2xl" />
         <IoMdNotifications className="cursor-pointer text-2xl" />
         <FaUserCircle className="cursor-pointer text-2xl" />
       </div>
 
-      {/* Sidebar */}
       <ToggleSidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
     </div>
   );
 };
 
 export default HeaderMain;
-
-

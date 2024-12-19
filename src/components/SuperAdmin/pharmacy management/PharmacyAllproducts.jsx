@@ -1,6 +1,5 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import axios from "axios";
 import ProductCard from "./productCard";
 import { toast } from "react-toastify";
 import { Button } from "../doctor management/SubCard";
@@ -12,19 +11,17 @@ const PharmAllProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      await axios
-        .get("http://localhost:7000/pharmacy/product", {
-          headers: { Authorization: `Bearer ${authToken}` },
-        })
-        .then((res) => {
-          setProducts(res.data.findProduct);
-        })
-        .catch((err) => {
-          toast.error(err.response.data.message);
-        });
+      const response = await axios.get("http://localhost:7000/pharmacy/product", {
+        headers: { Authorization: `Bearer ${authToken}` },
+      });
+      setProducts(response.data.findProduct);
     } catch (error) {
-      console.log(error);
+      toast.error("Failed to fetch products.");
     }
+  };
+
+  const handleDeleteProduct = (productId) => {
+    setProducts(products.filter((product) => product._id !== productId));
   };
 
   useEffect(() => {
@@ -38,9 +35,13 @@ const PharmAllProducts = () => {
           <Button btnName={"+ Add Product"} />
         </Link>
       </div>
-      <div className="grid grid-cols-4 gap-4 p-3 max-[810px]:grid-cols-1 max-lg:grid-cols-2 lg:max-xl:grid-cols-3 xl:grid-cols-4 ">
+      <div className="grid grid-cols-4 gap-4 p-3 max-[810px]:grid-cols-1 max-lg:grid-cols-2 lg:max-xl:grid-cols-3 xl:grid-cols-4">
         {products.map((value) => (
-          <ProductCard key={value._id} product={value} />
+          <ProductCard
+            key={value._id}
+            product={value}
+            onDelete={handleDeleteProduct}
+          />
         ))}
       </div>
     </div>

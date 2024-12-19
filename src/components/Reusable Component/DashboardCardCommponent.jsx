@@ -3,7 +3,7 @@ import React from "react";
 const DashboardCard = ({ props }) => {
   const { img: Img, title, count, date, color } = props || {};
 
-  //    console.log(Img);
+ 
 
   return (
     <div
