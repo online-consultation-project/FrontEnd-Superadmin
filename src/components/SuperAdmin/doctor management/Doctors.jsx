@@ -21,6 +21,7 @@ const DoctorCard = ({
   _id,
   phoneNumber,
   product,
+  profileFileName
 }) => {
   console.log(product);
 
@@ -28,7 +29,7 @@ const DoctorCard = ({
   return (
     <div className="min-h-[300px] flex flex-col gap-2 justify-center shadow-sm shadow-slate-600 rounded-xl ">
       <img
-        src={`${image}`}
+        src={`http://localhost:7000/upload/${profileFileName}`}
         alt="user Profile"
         className="h-44 w-full bg-slate-600 rounded-lg"
       />

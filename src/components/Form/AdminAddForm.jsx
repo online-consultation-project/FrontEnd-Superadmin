@@ -175,7 +175,7 @@ const AddAdmin = () => {
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
-              type="number"
+              type="tel"
               label="Phone Number"
               name="phoneNumber"
               value={adminData.phoneNumber}
