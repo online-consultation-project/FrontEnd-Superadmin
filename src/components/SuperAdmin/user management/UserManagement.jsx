@@ -3,6 +3,7 @@ import axios from "axios";
 import Sidebar from "../../Sidebar/Sidebar";
 import UserCard from "./Usercard";
 import { toast } from "react-toastify"; 
+import Loader from "../../Reusable Component/Loader";
 
 const UserComp = () => {
   const [userData, setUserData] = useState([]); 
@@ -20,7 +21,7 @@ const UserComp = () => {
           {
             params: {
               page: page,
-              limit: page === 1 ? 4 : 4,
+              limit: page === 1 ? 12 : 12,
             },
             headers: { Authorization: `Bearer ${authToken}` },
           }
@@ -74,7 +75,7 @@ const UserComp = () => {
                 Load More
               </button>
             )}
-            {loading && <p>Loading...</p>}
+            {loading && <Loader/>}
           </div>
         </div>
       </div>
@@ -83,3 +84,4 @@ const UserComp = () => {
 };
 
 export default UserComp;
+

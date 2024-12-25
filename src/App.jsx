@@ -27,11 +27,13 @@ import ProductAddForm from "./components/Form/ProductAddForm";
 import ProductForm from "./components/Form/ProductAddForm";
 import Navbarmain from "./components/mainportfolio/NavbarComponentDoctor";
 import SettingComp from "./components/SuperAdmin/settingsSuper/setting";
+import Loader from "./components/Reusable Component/Loader";
 
 const RouteComp = () => {
   return (
     <Routes>
       <Route path="/" element={<Signin />} />
+      <Route path="loader" element={<Loader />} />
       <Route  element={<PrivateRoute />}>
         <Route path="/home" element={<DashboardComp />} />
       
