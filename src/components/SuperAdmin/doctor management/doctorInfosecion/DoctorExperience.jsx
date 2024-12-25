@@ -43,7 +43,20 @@ const Experience = () => {
     }
   }, [_id]);
 
-    return <h2 className="text-xl font-bold">{`${doctorInfo.experience}`}</h2>;
+    return (
+      <div className="bg-white p-4 rounded-lg shadow-md">
+      <h2 className="text-xl font-bold mb-2 text-gray-800">Experience : {doctorInfo.experience}</h2>
+      <div>
+        <p className="text-gray-600 font-semibold mb-1">Experience At:</p>
+        <ul className="list-disc list-inside space-y-1">
+          <li className="text-gray-700">{doctorInfo.experience1}</li>
+          <li className="text-gray-700">{doctorInfo.experience2}</li>
+          <li className="text-gray-700">{doctorInfo.hospitalName}</li>
+        </ul>
+      </div>
+    </div>
+    
+    );
   };
   
   export default Experience;

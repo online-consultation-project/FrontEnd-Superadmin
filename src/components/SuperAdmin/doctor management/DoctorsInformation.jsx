@@ -68,16 +68,13 @@ const DoctorInfoMain = () => {
             },
             {
               path: `/doctors/doctorsinfo/${doctorInfo._id}/reviews`,
-              label: "Reviews",
+              label: "Education",
             },
             {
               path: `/doctors/doctorsinfo/${doctorInfo._id}/timetable`,
               label: "Time Table",
             },
-            {
-              path: `/doctors/doctorsinfo/${doctorInfo._id}/settings`,
-              label: "Settings",
-            },
+            
           ].map((tab) => (
             <NavLink
               key={tab.path}

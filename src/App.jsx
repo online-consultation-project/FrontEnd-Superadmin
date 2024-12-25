@@ -28,6 +28,7 @@ import ProductForm from "./components/Form/ProductAddForm";
 import Navbarmain from "./components/mainportfolio/NavbarComponentDoctor";
 import SettingComp from "./components/SuperAdmin/settingsSuper/setting";
 import Loader from "./components/Reusable Component/Loader";
+import AppointmentSlots from "./components/SuperAdmin/doctor management/doctorInfosecion/DoctorTimetable";
 
 const RouteComp = () => {
   return (
@@ -62,8 +63,8 @@ const RouteComp = () => {
             <Route index element={<Overview />} />
             <Route path="experience" element={<Experience />} />
             <Route path="reviews" element={<Reviews />} />
-            <Route path="timetable" element={<TimeTable />} />
-            <Route path="settings" element={<Setting />} />
+            <Route path="timetable" element={<AppointmentSlots />} />
+            {/* <Route path="settings" element={<Setting />} /> */}
           </Route>
         </Route>
         {/* <Route path="/addproduct" element={<ProductForm/>}/> */}
