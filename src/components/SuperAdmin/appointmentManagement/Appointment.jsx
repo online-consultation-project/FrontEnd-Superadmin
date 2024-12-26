@@ -9,7 +9,7 @@ const AppointmentTable = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true); // State to track loading
 
-  console.log(appointments);
+
 
   const fecthAppointment = async () => {
     setLoading(true); // Set loading state to true when starting the fetch
@@ -60,6 +60,7 @@ const AppointmentTable = () => {
                       month: "short",
                       day: "numeric",
                     }),
+                    doctorFirstName:appointment.doctorFirstName,
                     email: appointment.patientEmail,
                     phone: appointment.patientPhone,
                     type: appointment.slot,
