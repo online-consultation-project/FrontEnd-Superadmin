@@ -13,6 +13,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
 
+
 const initialState = {
   firstName: "",
   lastName: "",
@@ -65,6 +66,7 @@ const AddAdmin = () => {
         : await axios
             .post("http://localhost:7000/admin/addadmin", adminData)
             .then((res) => {
+              navigate("/doctors/doctorslist")
               toast.success(res.data.message);
               setAdminData(initialState);
             })
