@@ -5,23 +5,22 @@ import {
 import Sidebar from "../../Sidebar/Sidebar";
 import { FaUserDoctor } from "react-icons/fa6";
 import { SubCard } from "../doctor management/SubCard";
-import OfflineAppoitnment from "./OfflineAppointment";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 const pharmacyMenu = [
   {
     image: <FaAddressCard className="text-2xl font-semibold" />,
-    title: "Offline Appoitnment",
-    path: "/appointments",
+    title: "User Reports",
+    path: "/notifications",
   },
   {
     image: <FaUserDoctor className="text-2xl font-semibold" />,
-    title: "Online Appointment",
-    path: "/appointments/onlineappointment",
+    title: "Admin Reports",
+    path: "/notifications/adminreports",
   },
 ];
 
-const AppointmentTable = () => {
+const ReportManagement = () => {
 
   const location = useLocation()
   
@@ -34,7 +33,7 @@ const AppointmentTable = () => {
       <div className="p-6 bg-gray-200 sm:ml-72 overflow-x-scroll flex-1 ml-0 max-sm:mt-16">
         <div className="bg-gray-200 w-full h-screen">
           <h1 className="text-2xl font-bold mb-7 border-b-2 pb-3 border-slate-600">
-            Appointments
+           Reports Management
           </h1>
           <div className="mx-28 grid grid-cols-2 gap-4 mb-7 max-lg:grid-cols-1 max-lg:mx-14 max-[440px]:mx-5">
             {pharmacyMenu.map((value, index) => (
@@ -59,4 +58,4 @@ const AppointmentTable = () => {
   );
 };
 
-export default AppointmentTable;
+export default ReportManagement;

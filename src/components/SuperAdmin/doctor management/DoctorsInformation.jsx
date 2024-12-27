@@ -67,8 +67,12 @@ const DoctorInfoMain = () => {
               label: "Experience",
             },
             {
-              path: `/doctors/doctorsinfo/${doctorInfo._id}/reviews`,
+              path: `/doctors/doctorsinfo/${doctorInfo._id}/education`,
               label: "Education",
+            },
+            {
+              path: `/doctors/doctorsinfo/${doctorInfo._id}/reviews`,
+              label: "Reviews",
             },
             {
               path: `/doctors/doctorsinfo/${doctorInfo._id}/timetable`,

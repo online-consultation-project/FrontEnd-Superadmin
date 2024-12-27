@@ -18,8 +18,8 @@ const navItems = [
   { icon: FaUserCircle, text: "User Management", path: "/userdetails" },
   { icon: FaCalendarAlt, text: "Appointments", path: "/appointments" },
   { icon: LuShoppingBag, text: "Medical Store", path: "/pharmacy" },
-  { icon: FaBell, text: "Notifications", path: "/notifications" },
-  { icon: IoSettings, text: "Settings", path: "/settings" },
+  { icon: FaBell, text: "Reports", path: "/notifications" },
+  { icon: IoSettings, text: "Change Password", path: "/settings" },
 ];
 
 const Sidebar = () => {

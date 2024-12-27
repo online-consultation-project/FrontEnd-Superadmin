@@ -24,49 +24,64 @@ import Navbarmain from "./components/mainportfolio/NavbarComponentDoctor";
 import SettingComp from "./components/SuperAdmin/settingsSuper/setting";
 import Loader from "./components/Reusable Component/Loader";
 import AppointmentSlots from "./components/SuperAdmin/doctor management/doctorInfosecion/DoctorTimetable";
+import OfflineAppoitnment from "./components/SuperAdmin/appointmentManagement/OfflineAppointment";
+import OnlineAppoitnment from "./components/SuperAdmin/appointmentManagement/OnlineAppoitnemnt";
+import ReportManagement from "./components/SuperAdmin/ReportsManagement/ReportMain";
+import UserReports from "./components/SuperAdmin/ReportsManagement/UserReports";
+import Adminreports from "./components/SuperAdmin/ReportsManagement/AdminReports";
+import ErrorReportCard from "./components/SuperAdmin/ReportsManagement/ReportCard";
+import ReviewSection from "./components/SuperAdmin/doctor management/doctorInfosecion/DoctorSetting";
 
 const RouteComp = () => {
   return (
     <Routes>
       <Route path="/" element={<Signin />} />
+      <Route path="/demo" element={<ErrorReportCard />}/>
       <Route path="loader" element={<Loader />} />
-      <Route  element={<PrivateRoute />}>
+      <Route element={<PrivateRoute />}>
         <Route path="/home" element={<DashboardComp />} />
-      
 
         <Route path="/userdetails" element={<UserComp />} />
-        <Route path="/appointments" element={<AppointmentComp />} />
+        <Route path="/appointments" element={<AppointmentComp />}>
+          <Route index element={<OfflineAppoitnment />} />
+          <Route path="/appointments/onlineappointment" element={<OnlineAppoitnment />} />
+        </Route>
 
         <Route path="/pharmacy" element={<MedicalComp />}>
           <Route index element={<DashboardSection />} />
           <Route path="/pharmacy/addproducts" element={<AddProductSection />} />
-          <Route path="/pharmacy/updateproduct/:_id" element={<AddProductSection />} />
+          <Route
+            path="/pharmacy/updateproduct/:_id"
+            element={<AddProductSection />}
+          />
           <Route path="/pharmacy/products" element={<AllProductsSection />} />
           <Route path="/pharmacy/manageorders" element={<OrdersSection />} />
         </Route>
 
-        <Route path="/notifications" element={<div>Notifications</div>} />
-        <Route path="/settings" element={<SettingComp/>} />
+        <Route path="/notifications" element={<ReportManagement/>} >
+          <Route index element={<UserReports />} />
+          <Route path="/notifications/adminreports" element={<Adminreports />} />
+        </Route>
+        <Route path="/settings" element={<SettingComp />} />
         <Route path="/sidecard" element={<DoctorSideCardDesign />} />
         <Route path="/doccard" element={<DoctorCard />} />
 
         <Route path="/doctors" element={<DoctorComp />}>
           <Route index element={<FormSection />} />
-          <Route path="/doctors/update/:id" element={<FormSection/>}/>
+          <Route path="/doctors/update/:id" element={<FormSection />} />
           <Route path="/doctors/doctorslist" element={<DoctorSection />} />
           <Route path="/doctors/doctorsinfo/:_id" element={<DoctorInfo />}>
             <Route index element={<Overview />} />
             <Route path="experience" element={<Experience />} />
-            <Route path="reviews" element={<Reviews />} />
+            <Route path="education" element={<Reviews />} />
             <Route path="timetable" element={<AppointmentSlots />} />
-            {/* <Route path="settings" element={<Setting />} /> */}
+            <Route path="reviews" element={<ReviewSection />} />
           </Route>
         </Route>
         {/* <Route path="/addproduct" element={<ProductForm/>}/> */}
 
         <Route path="/navbar" element={<Navbarmain />} />
       </Route>
-
     </Routes>
   );
 };
