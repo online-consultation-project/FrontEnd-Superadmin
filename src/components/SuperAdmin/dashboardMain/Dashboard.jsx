@@ -1046,7 +1046,7 @@ const DashboardComp = () => {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="revenue" fill="#fb923c" />
+                    <Bar dataKey="revenue" fill="#32cd32" />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
