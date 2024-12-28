@@ -50,10 +50,7 @@ const RouteComp = () => {
         <Route path="/pharmacy" element={<MedicalComp />}>
           <Route index element={<DashboardSection />} />
           <Route path="/pharmacy/addproducts" element={<AddProductSection />} />
-          <Route
-            path="/pharmacy/updateproduct/:_id"
-            element={<AddProductSection />}
-          />
+          <Route path="/pharmacy/updateproduct/:_id" element={<AddProductSection />} />
           <Route path="/pharmacy/products" element={<AllProductsSection />} />
           <Route path="/pharmacy/manageorders" element={<OrdersSection />} />
         </Route>
@@ -62,6 +59,7 @@ const RouteComp = () => {
           <Route index element={<UserReports />} />
           <Route path="/notifications/adminreports" element={<Adminreports />} />
         </Route>
+        
         <Route path="/settings" element={<SettingComp />} />
         <Route path="/sidecard" element={<DoctorSideCardDesign />} />
         <Route path="/doccard" element={<DoctorCard />} />

@@ -36,7 +36,7 @@ const UserReports = () => {
     <div>
       {/* Display loader while data is loading */}
       {loading ? (
-        <Loader />
+        <Loader/>
       ) : (
         <div className="grid gap-4">
           {reports.map((report) => (

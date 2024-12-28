@@ -11,7 +11,7 @@ const navItems = [
     { icon: FaStethoscope, text: "Doctors", path: "/doctors" },
     { icon: FaUserCircle, text: "User Management", path: "/userdetails" },
     { icon: FaCalendarAlt, text: "Appointments", path: "/appointments" },
-    { icon: LuShoppingBag, text: "Medical Store", path: "/pharmacy" },
+    // { icon: LuShoppingBag, text: "Medical Store", path: "/pharmacy" },
     { icon: FaBell, text: "Notifications", path: "/notifications" },
     { icon: IoSettings, text: "Settings", path: "/settings" },
 ];
