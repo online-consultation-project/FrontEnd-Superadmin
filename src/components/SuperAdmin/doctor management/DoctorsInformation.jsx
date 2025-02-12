@@ -7,22 +7,16 @@ const DoctorInfoMain = () => {
   const { _id } = useParams();
   const [doctorInfo, setDoctorInfo] = useState([]);
 
-  console.log(doctorInfo);
-
   const getByUpdate = async (_id) => {
-    console.log("getupdate : ", _id);
     const authToken = localStorage.getItem("token");
-    console.log("token", authToken);
 
     try {
-      console.log("getupdate");
-
+      
       await axios
         .get(`http://localhost:7000/admin/getadmin/?_id=${_id}`, {
           headers: { Authorization: `Bearer ${authToken}` },
         })
         .then((res) => {
-          console.log(res.data);
           setDoctorInfo(res.data);
         })
         .catch((err) => {

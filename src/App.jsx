@@ -76,9 +76,7 @@ const RouteComp = () => {
             <Route path="reviews" element={<ReviewSection />} />
           </Route>
         </Route>
-        {/* <Route path="/addproduct" element={<ProductForm/>}/> */}
-
-        <Route path="/navbar" element={<Navbarmain />} />
+        
       </Route>
     </Routes>
   );

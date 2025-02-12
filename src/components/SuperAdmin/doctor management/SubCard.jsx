@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  primaryColor,
-  whiteColor,
-} from "../../Reusable Component/ColorSelector";
+
 
 export const Button = ({ btnName }) => {
   return (
