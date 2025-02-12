@@ -20,7 +20,6 @@ import Experience from "./components/SuperAdmin/doctor management/doctorInfoseci
 import Reviews from "./components/SuperAdmin/doctor management/doctorInfosecion/DoctorReview";
 import Signin from "./components/SuperAdmin/dashboardMain/Signin";
 import PrivateRoute from "./components/auth/private";
-import Navbarmain from "./components/mainportfolio/NavbarComponentDoctor";
 import SettingComp from "./components/SuperAdmin/settingsSuper/setting";
 import Loader from "./components/Reusable Component/Loader";
 import AppointmentSlots from "./components/SuperAdmin/doctor management/doctorInfosecion/DoctorTimetable";
